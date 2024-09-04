@@ -190,17 +190,17 @@ grpc://127.0.0.1:26500
 ## postman REST API
 POST https://login.cloud.camunda.io/oauth/token
 {
-"client_id" : "1zFe.PcimVMDff5o1-_y5ZQ1vajLG5Sm",
-"client_secret" : "T6ld9FEZ-Tuclu.agMyCxIZIL0Bb3V9GGxt3UGedz1CTrLCWe4LbhcN~bqmJi_MO",
+"client_id" : "1zFe.XXXG5Sm",
+"client_secret" : "T6XXXXXXXXXi_MO",
 "audience" : "zeebe.camunda.io",
 "grant_type:"client_credentials"
 }
 
-"access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVVXdPVFpDUTBVM01qZEVRME0wTkRFelJrUkJORFk0T0RZeE1FRTBSa1pFUlVWRVF6bERNZyJ9.eyJodHRwczovL2NhbXVuZGEuY29tL2NsdXN0ZXJJZCI6ImIxNmQ3MGNiLWI2NTQtNGQ3Ni1hM2E0LWQ0ZTQzOGU0NDQ3YyIsImh0dHBzOi8vY2FtdW5kYS5jb20vb3JnSWQiOiI0YWVkNWUwNi00NDVlLTQxZWYtOGE5My01MGRkMDVjMDZmMGUiLCJodHRwczovL2NhbXVuZGEuY29tL2NsaWVudElkIjoiMXpGZS5QY2ltVk1EZmY1bzEtX3k1WlExdmFqTEc1U20iLCJpc3MiOiJodHRwczovL3dlYmxvZ2luLmNsb3VkLmNhbXVuZGEuaW8vIiwic3ViIjoibXdvOTB0MnIzMTYwN3ozNkJOSDY5dFdGS0JYNTVqMVdAY2xpZW50cyIsImF1ZCI6InplZWJlLmNhbXVuZGEuaW8iLCJpYXQiOjE3MjQ3MDAyMjAsImV4cCI6MTcyNDc4NjYyMCwic2NvcGUiOiJiMTZkNzBjYi1iNjU0LTRkNzYtYTNhNC1kNGU0MzhlNDQ0N2MiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJtd285MHQycjMxNjA3ejM2Qk5INjl0V0ZLQlg1NWoxVyJ9.dBvLl1ShEpgxvBRG3x5XCH10TklJgJOoKvQb6wGBEwPmgAFHSokL6c2W0ooUuXFsmtcvT2vFJ5qLZJeSRebZ9098KNq3u0FNwX5G5BxwJj3sRhIn7-osIgguTycPBkCoHl-uaGNwlRPlOwbTTc93yWHBisRWa0nlIA2LFmgeQB1mu6W9l_ykzTldguDHyCXmBEcy7vhy-7bZZuvrj6psRTObXHk9IoCrVrv9Hk6Jk20QE-DJB9lmD5683MBJql_6uCrBUbCOKjd_MgunC66ICd7zND2nxc_5Tlqf2S8duJZM9nXzHN1-jtxAulquum6I7Pz1hF6Na38Sw1hyII1omQ",
+"access_token": "eyJhbGcXXXXXXXXXXXX  lJrUkJORFk0T0RZeE1FRTBSa1pFUlVWRVF6bERNZyJ9.eyJodHRwczovL2NhbXVuZGEuY29tL2NsdXN0ZXJJZCI6ImIxNmQ3MGNiLWI2NTQtNGQ3Ni1hM2E0LWQ0ZTQzOGU0NDQ3YyIsImh0dHBzOi8vY2FtdW5kYS5jb20vb3JnSWQiOiI0YWVkNWUwNi00NDVlLTQxZWYtOGE5My01MGRkMDVjMDZmMGUiLCJodHRwczovL2NhbXVuZGEuY29tL2NsaWVudElkIjoiMXpGZS5QY2ltVk1EZmY1bzEtX3k1WlExdmFqTEc1U20iLCJpc3MiOiJodHRwczovL3dlYmxvZ2luLmNsb3VkLmNhbXVuZGEuaW8vIiwic3ViIjoibXdvOTB0MnIzMTYwN3ozNkJOSDY5dFdGS0JYNTVqMVdAY2xpZW50cyIsImF1ZCI6InplZWJlLmNhbXVuZGEuaW8iLCJpYXQiOjE3MjQ3MDAyMjAsImV4cCI6MTcyNDc4NjYyMCwic2NvcGUiOiJiMTZkNzBjYi1iNjU0LTRkNzYtYTNhNC1kNGU0MzhlNDQ0N2MiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJtd285MHQycjMxNjA3ejM2Qk5INjl0V0ZLQlg1NWoxVyJ9.dBvLl1ShEpgxvBRG3x5XCH10TklJgJOoKvQb6wGBEwPmgAFHSokL6c2W0ooUuXFsmtcvT2vFJ5qLZJeSRebZ9098KNq3u0FNwX5G5BxwJj3sRhIn7-osIgguTycPBkCoHl-uaGNwlRPlOwbTTc93yWHBisRWa0nlIA2LFmgeQB1mu6W9l_ykzTldguDHyCXmBEcy7vhy-7bZZuvrj6psRTObXHk9IoCrVrv9Hk6Jk20QE-DJB9lmD5683MBJql_6uCrBUbCOKjd_MgunC66ICd7zND2nxc_5Tlqf2S8duJZM9nXzHN1-jtxAulquum6I7Pz1hF6Na38Sw1hyII1omQ",
 "scope": "b16d70cb-b654-4d76-a3a4-d4e438e4447c",
 
 
-http://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443//v1/topology
+http://b16XXXXXXXXXXXX7c.jfk-1.zeebe.camunda.io:443//v1/topology
 
 
 
@@ -208,43 +208,3 @@ https://accounts.cloud.camunda.io/advanced
 
 zbctl status 
 
-
-
-export ZEEBE_ADDRESS='b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='S4CAVudbNibOfmsXrEu5ksdIbKwJwiqZ'
-export ZEEBE_CLIENT_SECRET='YPewiJU42CsitVd9b_rD1aFLGzjD4hm1k8iHmH34rC_ehVt1lemYAdiO18P_tVMd'
-export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
-export ZEEBE_REST_ADDRESS='https://jfk-1.zeebe.camunda.io/b16d70cb-b654-4d76-a3a4-d4e438e4447c'
-export ZEEBE_GRPC_ADDRESS='grpcs://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
-export ZEEBE_TOKEN_AUDIENCE='zeebe.camunda.io'
-export CAMUNDA_CLUSTER_ID='b16d70cb-b654-4d76-a3a4-d4e438e4447c'
-export CAMUNDA_CLUSTER_REGION='jfk-1'
-export CAMUNDA_CREDENTIALS_SCOPES='Zeebe'
-export CAMUNDA_OAUTH_URL='https://login.cloud.camunda.io/oauth/token'
-# RBC SaaS
-export ZEEBE_ADDRESS='1e5fea97-2389-4a7d-9589-c1cc57a1e38a.ont-1.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='~11jiUhnvCBaBbeia4ix81YHhkyPhf7Y'
-export ZEEBE_CLIENT_SECRET='q4ePdoDnew8NLB.qLupvAQEKH~ziWcjcdUkaoRKMDrHFr8ntKKD4SJ69IlDYAnre'
-export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
-
-
-
-export ZEEBE_ADDRESS='b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='~11jiUhnvCBaBbeia4ix81YHhkyPhf7Y'
-export ZEEBE_CLIENT_SECRET='q4ePdoDnew8NLB.qLupvAQEKH~ziWcjcdUkaoRKMDrHFr8ntKKD4SJ69IlDYAnre'
-export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
-export ZEEBE_REST_ADDRESS='https://jfk-1.zeebe.camunda.io/b16d70cb-b654-4d76-a3a4-d4e438e4447c'
-export ZEEBE_GRPC_ADDRESS='grpcs://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
-export ZEEBE_TOKEN_AUDIENCE='zeebe.camunda.io'
-export CAMUNDA_CLUSTER_ID='b16d70cb-b654-4d76-a3a4-d4e438e4447c'
-export CAMUNDA_CLUSTER_REGION='jfk-1'
-export CAMUNDA_CREDENTIALS_SCOPES='Zeebe'
-export CAMUNDA_OAUTH_URL='https://login.cloud.camunda.io/oauth/token'
-
-
-
-
-export ZEEBE_ADDRESS='45cf5a2e-cee0-462f-b676-7c4330a9ce8a.bru-2.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='kO-FOCEUWPOXoJYwG4g5KZmXM7Jmu.7f'
-export ZEEBE_CLIENT_SECRET='_t1I9hYpwgowpJ0AbbcuLmxddMNpxvLKv5X_mMoXr237n.Eowy4I7fZrZ_JKB-HS'
-export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
