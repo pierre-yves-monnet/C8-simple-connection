@@ -25,9 +25,9 @@ a `clientId` and `clientSecret` from a [client credentials pair](https://docs.ca
 The credentails can be added to the application.properties.
 
 ```properties
-zeebe.client.cloud.clusterId=365eed98-16c1-4096-bb57-eb8828ed131e
-zeebe.client.cloud.clientId=GZVO3ALYy~qCcD3MYq~sf0GIszNzLE_z
-zeebe.client.cloud.clientSecret=.RPbZc6q0d6uzRbB4LW.B8lCpsxbBEpmBX0AHQGzINf3.KK9RkzZW1aDaZ-7WYNJ
+zeebe.client.cloud.clusterId=365eXXXXXe
+zeebe.client.cloud.clientId=GZXXXXXXXXXXXXX
+zeebe.client.cloud.clientSecret=.RXXXXXXXXXXXXXXXXXXXZ-7WYNJ
 ```
 
 If you are using a self managed Camunda Platform 8 cluster, you create the client
@@ -143,14 +143,14 @@ This is discussed in more detail in [this blog post about writing good workers f
 
 wsl
 
-export ZEEBE_ADDRESS='b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='1zFe.PcimVMDff5o1-_y5ZQ1vajLG5Sm'
-export ZEEBE_CLIENT_SECRET='T6ld9FEZ-Tuclu.agMyCxIZIL0Bb3V9GGxt3UGedz1CTrLCWe4LbhcN~bqmJi_MO'
+export ZEEBE_ADDRESS='b16XXXXXXXXXXXXXXXXXXXXXXXXXXk-1.zeebe.camunda.io:443'
+export ZEEBE_CLIENT_ID='1zXXXXXXXXXXXXXXXXXXXXXXXm'
+export ZEEBE_CLIENT_SECRET='T6ld9FXXXXXXXXXXXXXXXXXXXXJi_MO'
 export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
-export ZEEBE_REST_ADDRESS='https://jfk-1.zeebe.camunda.io/b16d70cb-b654-4d76-a3a4-d4e438e4447c'
-export ZEEBE_GRPC_ADDRESS='grpcs://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443'
+export ZEEBE_REST_ADDRESS='https://jfk-1.zeebe.camunda.io/b16dXXXXXXXXXXXXXXXXXXXXXXXX'
+export ZEEBE_GRPC_ADDRESS='grpcs://b1XXXXXXXXXXXXXXXXXXXXXjfk-1.zeebe.camunda.io:443'
 export ZEEBE_TOKEN_AUDIENCE='zeebe.camunda.io'
-export CAMUNDA_CLUSTER_ID='b16d70cb-b654-4d76-a3a4-d4e438e4447c'
+export CAMUNDA_CLUSTER_ID='b16d7XXXXXXXXXXXXXXXXXXXX7c'
 
 export CAMUNDA_CLUSTER_REGION='jfk-1'
 export CAMUNDA_CREDENTIALS_SCOPES='Zeebe'
@@ -168,19 +168,12 @@ URL: grpc://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443
 
 curl -X POST --header 'content-type: application/json' --data '{"client_id": "<client-id>", "client_secret":"<client-secret>","audience":"<audience>","grant_type":"client_credentials"}' https://<authorization server url>
 
-curl -X POST --header 'content-type: application/json' --data '{"client_id": "1zFe.PcimVMDff5o1-_y5ZQ1vajLG5Sm", "client_secret":"T6ld9FEZ-Tuclu.agMyCxIZIL0Bb3V9GGxt3UGedz1CTrLCWe4LbhcN~bqmJi_MO","audience":"zeebe.camunda.io","grant_type":"client_credentials"}' https://login.cloud.camunda.io/oauth/token
-
-
-curl -X POST --header 'content-type: application/json' --data '{"client_id": "XXXXXXXXXXXX", "client_secret":"XXX","audience":"zeebe.camunda.io","grant_type":"client_credentials"}' https://login.cloud.camunda.io/oauth/token
-
-
 
 
 
 
 curl -XGET -H'Accept: application/json' -H'Authorization: Bearer <TOKEN>' http://localhost:8080/v2/topology
 
-curl -XGET -H'Accept: application/json' -H'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFVVXdPVFpDUTBVM01qZEVRME0wTkRFelJrUkJORFk0T0RZeE1FRTBSa1pFUlVWRVF6bERNZyJ9.eyJodHRwczovL2NhbXVuZGEuY29tL2NsdXN0ZXJJZCI6ImIxNmQ3MGNiLWI2NTQtNGQ3Ni1hM2E0LWQ0ZTQzOGU0NDQ3YyIsImh0dHBzOi8vY2FtdW5kYS5jb20vb3JnSWQiOiI0YWVkNWUwNi00NDVlLTQxZWYtOGE5My01MGRkMDVjMDZmMGUiLCJodHRwczovL2NhbXVuZGEuY29tL2NsaWVudElkIjoiMXpGZS5QY2ltVk1EZmY1bzEtX3k1WlExdmFqTEc1U20iLCJpc3MiOiJodHRwczovL3dlYmxvZ2luLmNsb3VkLmNhbXVuZGEuaW8vIiwic3ViIjoibXdvOTB0MnIzMTYwN3ozNkJOSDY5dFdGS0JYNTVqMVdAY2xpZW50cyIsImF1ZCI6InplZWJlLmNhbXVuZGEuaW8iLCJpYXQiOjE3MjQ3MDAyMjAsImV4cCI6MTcyNDc4NjYyMCwic2NvcGUiOiJiMTZkNzBjYi1iNjU0LTRkNzYtYTNhNC1kNGU0MzhlNDQ0N2MiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJtd285MHQycjMxNjA3ejM2Qk5INjl0V0ZLQlg1NWoxVyJ9.dBvLl1ShEpgxvBRG3x5XCH10TklJgJOoKvQb6wGBEwPmgAFHSokL6c2W0ooUuXFsmtcvT2vFJ5qLZJeSRebZ9098KNq3u0FNwX5G5BxwJj3sRhIn7-osIgguTycPBkCoHl-uaGNwlRPlOwbTTc93yWHBisRWa0nlIA2LFmgeQB1mu6W9l_ykzTldguDHyCXmBEcy7vhy-7bZZuvrj6psRTObXHk9IoCrVrv9Hk6Jk20QE-DJB9lmD5683MBJql_6uCrBUbCOKjd_MgunC66ICd7zND2nxc_5Tlqf2S8duJZM9nXzHN1-jtxAulquum6I7Pz1hF6Na38Sw1hyII1omQ' http://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:8080/v1/topology
 
 
 Local server
@@ -196,7 +189,7 @@ POST https://login.cloud.camunda.io/oauth/token
 "grant_type:"client_credentials"
 }
 
-"access_token": "eyJhbGcXXXXXXXXXXXX  lJrUkJORFk0T0RZeE1FRTBSa1pFUlVWRVF6bERNZyJ9.eyJodHRwczovL2NhbXVuZGEuY29tL2NsdXN0ZXJJZCI6ImIxNmQ3MGNiLWI2NTQtNGQ3Ni1hM2E0LWQ0ZTQzOGU0NDQ3YyIsImh0dHBzOi8vY2FtdW5kYS5jb20vb3JnSWQiOiI0YWVkNWUwNi00NDVlLTQxZWYtOGE5My01MGRkMDVjMDZmMGUiLCJodHRwczovL2NhbXVuZGEuY29tL2NsaWVudElkIjoiMXpGZS5QY2ltVk1EZmY1bzEtX3k1WlExdmFqTEc1U20iLCJpc3MiOiJodHRwczovL3dlYmxvZ2luLmNsb3VkLmNhbXVuZGEuaW8vIiwic3ViIjoibXdvOTB0MnIzMTYwN3ozNkJOSDY5dFdGS0JYNTVqMVdAY2xpZW50cyIsImF1ZCI6InplZWJlLmNhbXVuZGEuaW8iLCJpYXQiOjE3MjQ3MDAyMjAsImV4cCI6MTcyNDc4NjYyMCwic2NvcGUiOiJiMTZkNzBjYi1iNjU0LTRkNzYtYTNhNC1kNGU0MzhlNDQ0N2MiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiJtd285MHQycjMxNjA3ejM2Qk5INjl0V0ZLQlg1NWoxVyJ9.dBvLl1ShEpgxvBRG3x5XCH10TklJgJOoKvQb6wGBEwPmgAFHSokL6c2W0ooUuXFsmtcvT2vFJ5qLZJeSRebZ9098KNq3u0FNwX5G5BxwJj3sRhIn7-osIgguTycPBkCoHl-uaGNwlRPlOwbTTc93yWHBisRWa0nlIA2LFmgeQB1mu6W9l_ykzTldguDHyCXmBEcy7vhy-7bZZuvrj6psRTObXHk9IoCrVrv9Hk6Jk20QE-DJB9lmD5683MBJql_6uCrBUbCOKjd_MgunC66ICd7zND2nxc_5Tlqf2S8duJZM9nXzHN1-jtxAulquum6I7Pz1hF6Na38Sw1hyII1omQ",
+"access_token": "eyJhbGcXXXXXXXXXXXX  lJrUkJOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyII1omQ",
 "scope": "b16d70cb-b654-4d76-a3a4-d4e438e4447c",
 
 
