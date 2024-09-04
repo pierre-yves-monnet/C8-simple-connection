@@ -1,0 +1,28 @@
+camunda:
+  client:
+    mode: oidc
+    auth:
+      clientId: zeebe
+      clientSecret: S7FxJwZO5M
+
+    zeebe:
+      enabled: true
+      gatewayUrl: http://localhost:26500
+      preferRestOverGrpc: false
+      audience: zeebe-api
+
+    operate:
+      enabled: false
+    tasklist:
+      enabled: false
+
+
+ # Saas
+zeebeSaaS:
+  client:
+    cloud:
+      region: jfk-1
+      clusterId: b16d70cb-b654-4d76-a3a4-d4e438e4447c
+      clientId: 1zFe.PcimVMDff5o1-_y5ZQ1vajLG5Sm
+      clientSecret: T6ld9FEZ-Tuclu.agMyCxIZIL0Bb3V9GGxt3UGedz1CTrLCWe4LbhcN~bqmJi_MO
+
