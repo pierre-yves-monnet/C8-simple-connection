@@ -12,7 +12,7 @@ provides a Zeebe client.
 <dependency>
   <groupId>io.camunda</groupId>
   <artifactId>spring-zeebe-starter</artifactId>
-  <version>8.5.5</version>
+  <version>8.5.17</version>
 </dependency>
 ```
 
@@ -24,13 +24,16 @@ a `clientId` and `clientSecret` from a [client credentials pair](https://docs.ca
 
 The credentails can be added to the application.properties.
 
-```properties
-zeebe.client.cloud.clusterId=365eXXXXXe
-zeebe.client.cloud.clientId=GZXXXXXXXXXXXXX
-zeebe.client.cloud.clientSecret=.RXXXXXXXXXXXXXXXXXXXZ-7WYNJ
+```yaml
+zeebe.client:
+  broker:
+    grpcAddress: http://127.0.0.1:26500
+    restAddress: http://127.0.0.1:8080
+  security:
+    plaintext: true
 ```
 
-If you are using a self managed Camunda Platform 8 cluster, you create the client
+If you are using a self-managed Camunda Platform 8 cluster, you create the client
 using the following application config, see
 [application.localhost.yaml](src/main/resources/application.localhost.properties).
 
@@ -39,13 +42,10 @@ zeebe.client.broker.gatewayAddress=127.0.0.1:26500
 zeebe.client.security.plaintext=true
 ```
 
-To enable the Zeebe client integration annotate your application class with
-`@EnableZeebeClient`, see
 [ProcessApplication.java](src/main/java/io/camunda/getstarted/ProcessApplication.java).
 
 ```java
 @SpringBootApplication
-@EnableZeebeClient
 public class ProcessApplication {
 
   public static void main(String[] args) {
@@ -62,7 +62,6 @@ to specify a list of `resources` (e.g. from classpath) to be deployed on start u
 
 ```java
 @SpringBootApplication
-@EnableZeebeClient
 @Deployment(resources = "classpath:send-email.bpmn")
 public class ProcessApplication {
 
@@ -122,7 +121,7 @@ run it using the following command.
 mvn spring-boot:run
 ```
 
-To make an job available, a user task has to be completed, follow the
+To make a job available, a user task has to be completed, follow the
 instructions in [the guide](../README.md#complete-the-user-task).
 
 
@@ -138,66 +137,4 @@ blocking code is limited in terms of scalability.
 
 This is discussed in more detail in [this blog post about writing good workers for Camunda Platform 8](https://blog.bernd-ruecker.com/writing-good-workers-for-camunda-cloud-61d322cad862).
 
-# zbctl  
-
-
-wsl
-
-export ZEEBE_ADDRESS='b16XXXXXXXXXXXXXXXXXXXXXXXXXXk-1.zeebe.camunda.io:443'
-export ZEEBE_CLIENT_ID='1zXXXXXXXXXXXXXXXXXXXXXXXm'
-export ZEEBE_CLIENT_SECRET='T6ld9FXXXXXXXXXXXXXXXXXXXXJi_MO'
-export ZEEBE_AUTHORIZATION_SERVER_URL='https://login.cloud.camunda.io/oauth/token'
-export ZEEBE_REST_ADDRESS='https://jfk-1.zeebe.camunda.io/b16dXXXXXXXXXXXXXXXXXXXXXXXX'
-export ZEEBE_GRPC_ADDRESS='grpcs://b1XXXXXXXXXXXXXXXXXXXXXjfk-1.zeebe.camunda.io:443'
-export ZEEBE_TOKEN_AUDIENCE='zeebe.camunda.io'
-export CAMUNDA_CLUSTER_ID='b16d7XXXXXXXXXXXXXXXXXXXX7c'
-
-export CAMUNDA_CLUSTER_REGION='jfk-1'
-export CAMUNDA_CREDENTIALS_SCOPES='Zeebe'
-export CAMUNDA_OAUTH_URL='https://login.cloud.camunda.io/oauth/token'
-
-zbctl status
-
-# curl
-Not possible to call a GRPC server
-
-# postman
-Do a GRPO call
-URL: grpc://b16d70cb-b654-4d76-a3a4-d4e438e4447c.jfk-1.zeebe.camunda.io:443
-==> Not working
-
-curl -X POST --header 'content-type: application/json' --data '{"client_id": "<client-id>", "client_secret":"<client-secret>","audience":"<audience>","grant_type":"client_credentials"}' https://<authorization server url>
-
-
-
-
-
-curl -XGET -H'Accept: application/json' -H'Authorization: Bearer <TOKEN>' http://localhost:8080/v2/topology
-
-
-
-Local server
-grpc://127.0.0.1:26500
-
-
-## postman REST API
-POST https://login.cloud.camunda.io/oauth/token
-{
-"client_id" : "1zFe.XXXG5Sm",
-"client_secret" : "T6XXXXXXXXXi_MO",
-"audience" : "zeebe.camunda.io",
-"grant_type:"client_credentials"
-}
-
-"access_token": "eyJhbGcXXXXXXXXXXXX  lJrUkJOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyII1omQ",
-"scope": "b16d70cb-b654-4d76-a3a4-d4e438e4447c",
-
-
-http://b16XXXXXXXXXXXX7c.jfk-1.zeebe.camunda.io:443//v1/topology
-
-
-
-https://accounts.cloud.camunda.io/advanced
-
-zbctl status 
 
