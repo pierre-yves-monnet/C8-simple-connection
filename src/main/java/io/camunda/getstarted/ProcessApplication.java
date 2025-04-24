@@ -45,7 +45,7 @@ public class ProcessApplication implements CommandLineRunner {
         .open();
 
 
-    final ProcessInstanceEvent event =
+    final ProcessInstanceEvent processInstanceEvent =
         zeebeClient
             .newCreateInstanceCommand()
             .bpmnProcessId("send-email")
@@ -54,12 +54,18 @@ public class ProcessApplication implements CommandLineRunner {
             .send()
             .join();
 
-    LOG.info("Started instance for processDefinitionKey='{}', bpmnProcessId='{}', version='{}' with processInstanceKey='{}'",
-        event.getProcessDefinitionKey(), event.getBpmnProcessId(), event.getVersion(), event.getProcessInstanceKey());
+    LOG.info("Started instance[{}] for processDefinitionKey[{}], bpmnProcessId[{}], version[{}] with processInstanceKey[{}]",
+            processInstanceEvent.getProcessInstanceKey(),
+            processInstanceEvent.getProcessDefinitionKey(),
+            processInstanceEvent.getBpmnProcessId(),
+            processInstanceEvent.getVersion(),
+            processInstanceEvent.getProcessInstanceKey());
   }
+
+
   @Scheduled(cron = "0 */10 * * * *") // Runs at every 10th minute
   public void runTask() {
-    final ProcessInstanceEvent event =
+    final ProcessInstanceEvent processInstanceEvent =
         zeebeClient
             .newCreateInstanceCommand()
             .bpmnProcessId("send-email")
@@ -67,8 +73,12 @@ public class ProcessApplication implements CommandLineRunner {
             .variables(Map.of("message_content", "Hello from the Spring Boot get started"))
             .send()
             .join();
-    LOG.info(">>>>>>>>>>>>>>>>>>>> Started instance for processDefinitionKey='{}', bpmnProcessId='{}', version='{}' with processInstanceKey='{}'",
-        event.getProcessDefinitionKey(), event.getBpmnProcessId(), event.getVersion(), event.getProcessInstanceKey());
+    LOG.info("Started instance[{}] for processDefinitionKey[{}], bpmnProcessId[{}], version[{}] with processInstanceKey[{}]",
+            processInstanceEvent.getProcessInstanceKey(),
+            processInstanceEvent.getProcessDefinitionKey(),
+            processInstanceEvent.getBpmnProcessId(),
+            processInstanceEvent.getVersion(),
+            processInstanceEvent.getProcessInstanceKey());
 
   }
 }

@@ -3,24 +3,30 @@
 This guide explains how to setup a Spring Boot project to automate a process using
 [Camunda Platform 8](https://camunda.com/products/cloud/).
 
+# Start a 8.5 server
+
+helm install camunda camunda/camunda-platform --version 10.6.0 --namespace camunda -f
+../development/camunda-values-2.yaml --create-namespace --skip-crds
+
 # Install dependencies
 
 The open source library [spring-zeebe](https://github.com/camunda-community-hub/spring-zeebe)
 provides a Zeebe client.
 
 ```
-<dependency>
-  <groupId>io.camunda</groupId>
-  <artifactId>spring-zeebe-starter</artifactId>
-  <version>8.5.17</version>
-</dependency>
+    <dependency>
+        <groupId>io.camunda</groupId>
+        <artifactId>spring-boot-starter-camunda-sdk</artifactId>
+        <version>8.5.17</version>
+	</dependency>
 ```
 
 # Create Client
 
-If we want to connect to a Camunda Platform 8 SaaS cluster we need the `clusterId` from the 
+If we want to connect to a Camunda Platform 8 SaaS cluster we need the `clusterId` from the
 [Clusters details page](https://docs.camunda.io/docs/components/console/manage-clusters/create-cluster/),
-a `clientId` and `clientSecret` from a [client credentials pair](https://docs.camunda.io/docs/components/console/manage-clusters/manage-api-clients/). 
+a `clientId` and `clientSecret` from
+a [client credentials pair](https://docs.camunda.io/docs/components/console/manage-clusters/manage-api-clients/).
 
 The credentails can be added to the application.properties.
 
@@ -45,12 +51,13 @@ zeebe.client.security.plaintext=true
 [ProcessApplication.java](src/main/java/io/camunda/getstarted/ProcessApplication.java).
 
 ```java
+
 @SpringBootApplication
 public class ProcessApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(ProcessApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(ProcessApplication.class, args);
+    }
 
 }
 ```
@@ -61,13 +68,14 @@ To deploy a process you can use the annotation `@Deployment`, which allows
 to specify a list of `resources` (e.g. from classpath) to be deployed on start up.
 
 ```java
+
 @SpringBootApplication
 @Deployment(resources = "classpath:send-email.bpmn")
 public class ProcessApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(ProcessApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(ProcessApplication.class, args);
+    }
 
 }
 ```
@@ -77,16 +85,24 @@ To start a new instance you can specify the `bpmnProcessId`, i.e.
 
 ```java
 final ProcessInstanceEvent event =
-  client
-    .newCreateInstanceCommand()
-    .bpmnProcessId("send-email")
-    .latestVersion()
-    .variables(Map.of("message_content", "Hello from the Spring Boot get started"))
-    .send()
-    .join();
+        client
+                .newCreateInstanceCommand()
+                .bpmnProcessId("send-email")
+                .latestVersion()
+                .variables(Map.of("message_content", "Hello from the Spring Boot get started"))
+                .send()
+                .join();
 
-LOG.info("Started instance for processDefinitionKey='{}', bpmnProcessId='{}', version='{}' with processInstanceKey='{}'",
-	event.getProcessDefinitionKey(), event.getBpmnProcessId(), event.getVersion(), event.getProcessInstanceKey());
+LOG.
+
+info("Started instance for processDefinitionKey='{}', bpmnProcessId='{}', version='{}' with processInstanceKey='{}'",
+     event.getProcessDefinitionKey(),event.
+
+getBpmnProcessId(),event.
+
+getVersion(),event.
+
+getProcessInstanceKey());
 ```
 
 For the complete code see the
@@ -124,17 +140,19 @@ mvn spring-boot:run
 To make a job available, a user task has to be completed, follow the
 instructions in [the guide](../README.md#complete-the-user-task).
 
-
 # Blocking vs. Non-Blocking Code
 
-The code example to start a process instance used 
+The code example to start a process instance used
+
 ```
 send().join()
 ```
-which is a blocking call to wait for the issues command to be executed on the workflow engine. 
-While this is very straightforward to use and produces easy-to-read code, 
-blocking code is limited in terms of scalability. 
 
-This is discussed in more detail in [this blog post about writing good workers for Camunda Platform 8](https://blog.bernd-ruecker.com/writing-good-workers-for-camunda-cloud-61d322cad862).
+which is a blocking call to wait for the issues command to be executed on the workflow engine.
+While this is very straightforward to use and produces easy-to-read code,
+blocking code is limited in terms of scalability.
+
+This is discussed in more detail
+in [this blog post about writing good workers for Camunda Platform 8](https://blog.bernd-ruecker.com/writing-good-workers-for-camunda-cloud-61d322cad862).
 
 

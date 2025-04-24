@@ -4,6 +4,10 @@ zeebe.client:
    restAddress: http://127.0.0.1:8080
   security:
     plaintext: true
+  cloud:
+    clientId: zeebe
+    clientSecret: AcX7u6rY3p
+    authUrl: http://localhost:18080/auth/realms/camunda-platform/protocol/openid-connect/token
 
 camunda816:
   client:
