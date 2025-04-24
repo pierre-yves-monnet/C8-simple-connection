@@ -1,4 +1,11 @@
-camunda:
+zeebe.client:
+  broker:
+   grpcAddress: http://127.0.0.1:26500
+   restAddress: http://127.0.0.1:8080
+  security:
+    plaintext: true
+
+camunda816:
   client:
     mode: oidc
     auth:

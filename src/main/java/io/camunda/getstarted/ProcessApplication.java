@@ -3,7 +3,6 @@ package io.camunda.getstarted;
 import io.camunda.zeebe.client.ZeebeClient;
 import io.camunda.zeebe.client.api.response.ProcessInstanceEvent;
 import io.camunda.zeebe.client.api.worker.BackoffSupplier;
-import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import io.camunda.zeebe.spring.client.annotation.Deployment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +17,6 @@ import java.time.Duration;
 import java.util.Map;
 
 @SpringBootApplication
-@EnableZeebeClient
 @EnableScheduling
 @Deployment(resources = "classpath:send-email.bpmn")
 public class ProcessApplication implements CommandLineRunner {
