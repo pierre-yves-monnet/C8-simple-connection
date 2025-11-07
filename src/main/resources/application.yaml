@@ -1,12 +1,14 @@
 camunda:
   client:
-    mode: selfmanaged
+    mode: self-managed
     zeebe:
       grpc-address: http://127.0.0.1:26500
       rest-address: http://127.0.0.1:8080
-      executionThreads: 73
+      audience: zeebe-api
+
+      executionThreads: 20
       defaults:
-        maxJobsActive: 58
+        maxJobsActive: 50
 # identity enabled for API: check the clientSecret and add these parameters
 #  cloud:
 #    clientId: zeebe
@@ -23,6 +25,7 @@ camunda816:
     zeebe:
       enabled: true
       gatewayUrl: http://localhost:26500
+      grpc-address: http://localhost:26500
       preferRestOverGrpc: false
       audience: zeebe-api
 
@@ -41,3 +44,12 @@ zeebeSaaS:
       clientId: 1zFe.PcimVMDff5o1-_y5ZQ1vajLG5Sm
       clientSecret: T6ld9FEZ-Tuclu.agMyCxIZIL0Bb3V9GGxt3UGedz1CTrLCWe4LbhcN~bqmJi_MO
 
+  zeebe:
+    client:
+
+      connectionMode: "babar"
+      hello: "44"
+      worker:
+        name: "workerBlue"
+        threads: 97
+        maxJobsActive: 78
